@@ -42,10 +42,10 @@ Election Results
 -------------------------
 Total Votes: {totalVotes}
 -------------------------
-Khan: {(Khan_votes/totalVotes)*100:.3f}%  ({Khan_votes})
-Correy: {(Correy_votes/totalVotes)*100:.3f}% ({Correy_votes})
-Li: {(Li_votes/totalVotes)*100:.3f}%  ({Li_votes})
-O'Tooley: {(OTooley_votes/totalVotes)*100:.3f}% ({OTooley_votes})
+Khan: {(kcount/totalcount)*100:.3f}%  ({Khan})
+Correy: {(Ccount/totalcount)*100:.3f}% ({Correy})
+Li: {(Lcount/totalcount)*100:.3f}%  ({Li})
+O'Tooley: {(ocount/totalcount)*100:.3f}% ({OTooley})
 -------------------------
 Winner: {winner}
 -------------------------
