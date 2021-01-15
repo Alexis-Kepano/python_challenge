@@ -5,47 +5,51 @@ import csv
 csvpath=os.path.join('Resources', 'election_data.csv')
 #output
 outfile = os.path.join('Analysis', 'pypoll.txt')
+
 #declare variables   
-totalvotes = 0; kvotes = 0; ccount = 0; lcount = 0; ocount = 0; maxvotecount = 0
+totalvotes = 0; Khan_votes = 0; Correy_votes = 0; Li_votes = 0; OTooley_votes = 0; maxVotes = 0
 
 with open(csvpath) as csvfile:
     header = csvfile.readline()
     rows = csv.reader(csvfile)
 
 #votes by candidate
-    for candidate in candidates:
+    for row in rows:
 
         #total vote count
-        totalcount = (len(votes))
-        print(totalcount)
+        totalvotes += 1
 
-        if candidate =="Khan":
-            kcount = kcount + 1
-        if candidate =="Correy":
-            ccount = ccount + 1
-        if candidate =="Li":
-            lcount = lcount + 1
-        if candidate =="O'Tooley":
-            ocount = ocount + 1
+        if row[2] == "Khan":
+            Khan_votes += 1
+        elif row[2] == "Correy":
+            Correy_votes += 1
+        elif row[2] == "Li":
+            Li_votes += 1
+        elif row[2] == "O'Tooley":
+            OTooley_votes += 1
 
 # Define (dictionary) list : candidate and votes
-candidatevote = {"Khan": kcount,"Correy": ccount,"Li" :lcount, "O'Tooley": ocount}
+dict_candidates_and_votes = {
+    "Khan": Khan_votes,
+    "Correy": Correy_votes,
+    "Li": Li_votes,
+    "O'Tooley": OTooley_votes}
 # Find winner  
-for candidate, value in candidatevote.items():
- if value > maxvotecount:
-    maxvotecount = value
-    winner = candidate
+for candidate, votes in dict_candidates_and_votes.items():
+    if votes > maxVotes:
+        maxVotes = votes
+        winner = candidate
 
 #Output
 output = f"""
 Election Results
 -------------------------
-Total Votes: {totalVotes}
+Total Votes: {totalvotes}
 -------------------------
-Khan: {(kcount/totalcount)*100:.3f}%  ({Khan})
-Correy: {(Ccount/totalcount)*100:.3f}% ({Correy})
-Li: {(Lcount/totalcount)*100:.3f}%  ({Li})
-O'Tooley: {(ocount/totalcount)*100:.3f}% ({OTooley})
+Khan: {(Khan_votes/totalVotes)*100:.3f}%  ({Khan_votes})
+Correy: {(Correy_votes/totalVotes)*100:.3f}% ({Correy_votes})
+Li: {(Li_votes/totalVotes)*100:.3f}%  ({Li_votes})
+O'Tooley: {(OTooley_votes/totalVotes)*100:.3f}% ({OTooley_votes})
 -------------------------
 Winner: {winner}
 -------------------------
