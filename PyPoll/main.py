@@ -4,7 +4,7 @@ import csv
 #input
 csvpath=os.path.join('Resources', 'election_data.csv')
 #output
-outfile = os.path.join('Analysis', 'pypoll.txt')
+outfile = os.path.join('Analysis', 'pypollstatements.txt')
 
 #declare variables   
 totalvotes = 0; Khan_votes = 0; Correy_votes = 0; Li_votes = 0; OTooley_votes = 0; maxVotes = 0
@@ -46,10 +46,10 @@ Election Results
 -------------------------
 Total Votes: {totalvotes}
 -------------------------
-Khan: {(Khan_votes/totalVotes)*100:.3f}%  ({Khan_votes})
-Correy: {(Correy_votes/totalVotes)*100:.3f}% ({Correy_votes})
-Li: {(Li_votes/totalVotes)*100:.3f}%  ({Li_votes})
-O'Tooley: {(OTooley_votes/totalVotes)*100:.3f}% ({OTooley_votes})
+Khan: {(Khan_votes/totalvotes)*100:.3f}%  ({Khan_votes})
+Correy: {(Correy_votes/totalvotes)*100:.3f}% ({Correy_votes})
+Li: {(Li_votes/totalvotes)*100:.3f}%  ({Li_votes})
+O'Tooley: {(OTooley_votes/totalvotes)*100:.3f}% ({OTooley_votes})
 -------------------------
 Winner: {winner}
 -------------------------
@@ -59,7 +59,7 @@ print(output)
 
 with open(outfile, 'w') as outputFile:
     outputFile.write(output)
-
+ 
 
 
 
